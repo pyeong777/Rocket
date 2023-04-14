@@ -9,18 +9,18 @@ export default function NavBar() {
         <FiShoppingBag />
         <h1>Shoppy</h1>
       </Link>
-      <Link to="/products">
-        <p>Products</p>
-      </Link>
-      <Link to="/carts">
-        <p>Carts</p>
-      </Link>
-      <Link to="/products/new">
-        <BsFillPencilFill />
-      </Link>
-      <Link>
-        <p>Login</p>
-      </Link>
+      <nav>
+        <Link to="/products">
+          <p>Products</p>
+        </Link>
+        <Link to="/carts">
+          <p>Carts</p>
+        </Link>
+        <Link to="/products/new">
+          <BsFillPencilFill />
+        </Link>
+        <button>Login</button>
+      </nav>
     </header>
   );
 }
