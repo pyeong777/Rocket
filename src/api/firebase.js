@@ -5,6 +5,8 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from "firebase/auth";
+
+import { getDatabase, ref, get } from "firebase/database";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -17,6 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
+const database = getDatabase(app);
 
 export function login() {
   signInWithPopup(auth, provider).catch(console.error);
@@ -31,8 +34,24 @@ provider.setCustomParameters({
   prompt: "select_account",
 });
 
+//로그인 정보를 저장해둬서 사용자 변경시 콜백함수 호출
 export function onUserStateChange(callback) {
-  onAuthStateChanged(auth, (user) => {
-    callback(user);
+  onAuthStateChanged(auth, async (user) => {
+    const updatedUser = user ? await adminUserCheck(user) : null;
+    callback(updatedUser);
   });
+}
+
+//사용자가 어드민 권한을 가지고 있는지 확인
+//https://firebase.google.com/docs/database/web/read-and-write?hl=ko 참고
+async function adminUserCheck(user) {
+  return get(ref(database, "admins")) //
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const admins = snapshot.val();
+        const isAdmin = admins.includes(user.uid);
+        return { ...user, isAdmin };
+      }
+      return user;
+    });
 }
