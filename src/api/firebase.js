@@ -18,25 +18,12 @@ const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
-export async function login() {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      return user;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+export function login() {
+  signInWithPopup(auth, provider).catch(console.error);
 }
 
-export async function logout() {
-  return signOut(auth)
-    .then(() => {
-      null;
-    })
-    .catch((error) => {
-      // An error happened.
-    });
+export function logout() {
+  signOut(auth).catch(console.error);
 }
 
 //로그인 시 계정 선택없이 바로 로그인 되는 현상

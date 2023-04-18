@@ -8,19 +8,9 @@ export default function NavBar() {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    onUserStateChange((user) => {
-      console.log(user);
-      setUser(user);
-    });
+    onUserStateChange(setUser);
   }, []);
 
-  const handleLogin = () => {
-    login().then((user) => setUser(user));
-  };
-
-  const handleLogout = () => {
-    logout().then((user) => setUser(user));
-  };
   return (
     <header className="flex justify-between py-2 border-b border-gray-300">
       <Link to="/" className="flex items-center ml-4 text-3xl text-brand">
@@ -37,8 +27,8 @@ export default function NavBar() {
         <Link to="/products/new">
           <BsFillPencilFill />
         </Link>
-        {!user && <button onClick={handleLogin}>Login</button>}
-        {user && <button onClick={handleLogout}>Logout</button>}
+        {!user && <button onClick={login}>Login</button>}
+        {user && <button onClick={logout}>Logout</button>}
       </nav>
     </header>
   );
