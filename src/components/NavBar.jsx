@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { BsFillPencilFill } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
-import { useEffect, useState } from "react";
 import User from "./User";
 import Button from "./ui/Button";
 import { useAuthContext } from "./context/AuthContext";
@@ -19,9 +18,12 @@ export default function NavBar() {
         <Link to="/products">
           <p>Products</p>
         </Link>
-        <Link to="/carts">
-          <p>Carts</p>
-        </Link>
+        {user && (
+          <Link to="/carts">
+            <p>Carts</p>
+          </Link>
+        )}
+
         {user && user.isAdmin && (
           <Link to="/products/new">
             <BsFillPencilFill />
