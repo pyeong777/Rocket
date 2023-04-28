@@ -59,11 +59,13 @@ async function adminUserCheck(user) {
 
 export async function addNewProduct(product, image) {
   const id = uuid();
-  set(ref(database, `products/${uuid()}`), {
+  const result = await set(ref(database, `products/${uuid()}`), {
     ...product,
     id,
     price: parseInt(product.price),
     image,
     options: product.options.split(","),
   });
+
+  return result;
 }
