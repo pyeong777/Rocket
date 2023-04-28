@@ -6,6 +6,8 @@ import { addNewProduct } from "../api/firebase";
 export default function NewProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
+  const [isUploading, setIsUploading] = useState(false);
+  const [success, setSuccess] = useState();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -19,15 +21,25 @@ export default function NewProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    uploadImage(file).then((url) => {
-      addNewProduct(product, url);
-    });
+    setIsUploading(true);
+    uploadImage(file)
+      .then((url) => {
+        addNewProduct(product, url).then(() => {
+          setSuccess("성공적으로 제품이 추가되었습니다");
+          setTimeout(() => {
+            setSuccess(null);
+          }, 3000);
+        });
+      })
+      .finally(() => setIsUploading(false));
     //제품의 사진을 Cloudinary에 업로드 후 URL 획득
     //Firebase에 새로운 제품을 추가
   };
 
   return (
     <section>
+      <h2>새로운 제품 등록</h2>
+      {success && <p>{success}</p>}
       {file && <img src={URL.createObjectURL(file)} alt="localfile" />}
       <form onSubmit={handleSubmit}>
         <input
@@ -77,7 +89,10 @@ export default function NewProduct() {
           required
           onChange={handleChange}
         />
-        <Button text={"제품 등록하기"} />
+        <Button
+          text={isUploading ? "업로드..." : "제품 등록하기"}
+          disabled={isUploading}
+        />
       </form>
     </section>
   );
