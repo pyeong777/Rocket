@@ -71,7 +71,7 @@ export async function addNewProduct(product, image) {
 }
 
 export async function getProducts() {
-  const result = await get(ref(database, "products")).then((snapshot) => {
+  return get(ref(database, "products")).then((snapshot) => {
     if (snapshot.exists()) {
       return Object.values(snapshot.val());
     }
