@@ -1,9 +1,18 @@
+import { useNavigate } from "react-router-dom";
+
 export default function ProductCard({
+  product,
   product: { id, image, title, category, price },
 }) {
+  const navigate = useNavigate();
   const won = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
-    <li className="overflow-hidden rounded-lg shadow-md cursor-pointer hover:scale-105">
+    <li
+      onClick={() => {
+        navigate(`/products/${id}`, { state: { product } });
+      }}
+      className="overflow-hidden rounded-lg shadow-md cursor-pointer hover:scale-105"
+    >
       <img className="w-full" src={image} alt={title} />
       <div className="flex items-center justify-between px-2 mt-2 text-base">
         <h3 className="truncate">{title}</h3>
