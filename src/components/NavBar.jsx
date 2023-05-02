@@ -4,6 +4,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import User from "./User";
 import Button from "./ui/Button";
 import { useAuthContext } from "../context/AuthContext";
+import CartStatus from "./CartStatus";
 
 export default function NavBar() {
   const { user, login, logout } = useAuthContext();
@@ -20,7 +21,9 @@ export default function NavBar() {
         </Link>
         {user && (
           <Link to="/carts">
-            <p>Carts</p>
+            <p>
+              <CartStatus />
+            </p>
           </Link>
         )}
 
