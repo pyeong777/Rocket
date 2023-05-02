@@ -3,7 +3,7 @@ export default function ProductCard({
 }) {
   const won = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
-    <li className="overflow-hidden rounded-lg shadow-md cursor-pointer">
+    <li className="overflow-hidden rounded-lg shadow-md cursor-pointer hover:scale-105">
       <img className="w-full" src={image} alt={title} />
       <div className="flex items-center justify-between px-2 mt-2 text-base">
         <h3 className="truncate">{title}</h3>
