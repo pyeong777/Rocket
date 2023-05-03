@@ -1,18 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import { useAuthContext } from "../context/AuthContext";
-import { getCart } from "../api/firebase";
 import CartItem from "./../components/CartItem";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { FaEquals } from "react-icons/fa";
 import PriceCard from "../components/PriceCard";
 import Button from "./../components/ui/Button";
+import useCart from "./../hooks/useCart";
 
 //배송비
 const SHIPPING = 3000;
 
 export default function MyCart() {
-  const { uid } = useAuthContext();
-  const { isLoading, data: products } = useQuery(["carts"], () => getCart(uid));
+  const {
+    cartQuery: { isLoading, data: products },
+  } = useCart();
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -40,7 +39,7 @@ export default function MyCart() {
           <ul className="p-4 px-8 mb-8 border-b border-gary-300">
             {products &&
               products.map((product) => (
-                <CartItem key={product.id} product={product} uid={uid} />
+                <CartItem key={product.id} product={product} />
               ))}
           </ul>
           <div className="flex items-center justify-between px-2 mb-6 md:px-8 lg:px-16">
