@@ -21,9 +21,9 @@ export default function NavBar() {
         </Link>
         {user && (
           <Link to="/carts">
-            <p>
+            <div>
               <CartStatus />
-            </p>
+            </div>
           </Link>
         )}
 
