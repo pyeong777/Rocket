@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Rocket
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### React로 만든 쇼핑몰 개인프로젝트 입니다.
 
-## Available Scripts
+## 사용한 기술스택
 
-In the project directory, you can run:
+<div style="display:flex">
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-squre&logo=JavaScript&logoColor=black">
+<img src="https://img.shields.io/badge/react-61DAFB?style=flat-squre&logo=React&logoColor=black">
+<img src="https://img.shields.io/badge/TailwindCSS-blue?style=flat-squre&logo=TailwindCSS">
+<img src="https://img.shields.io/badge/html-E34F26?style=flat-squre&logo=HTML5&logoColor=black">
+<img src="https://img.shields.io/badge/css-1572B6?style=flat-squre&logo=CSS3&logoColor=black">
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-squre&logo=Github&logoColor=white">
+<img src="https://img.shields.io/badge/firebase-FFCA28?style=flat-squre&logo=firebase&logoColor=black">
+<img src="https://img.shields.io/badge/cloudinary-3693F3?style=flat-squre&logo=icloud&logoColor=white">
 
-### `yarn start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 주요 기능
 
-### `yarn test`
+- React-query로 서버 상태 관리
+- firebase로 간단한 데이터베이스 연동
+- cloudinary를 사용하여 이미지 호스팅 관리
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 서비스 화면
 
-### `yarn build`
+![rocket-2](https://github.com/pyeong777/Devlog-Next.js/assets/80046065/7d6ea2cb-a469-4db3-a451-f919536bb8b7)
+![rocket-1](https://github.com/pyeong777/Devlog-Next.js/assets/80046065/c9b93b82-67da-4344-b77f-5b87adc50511)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 서비스 페이지
+<a href="https://rocketmall.netlify.app/" target="_blank">Rocket</a>
